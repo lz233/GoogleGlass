@@ -1,0 +1,75 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'moe.lz233.googleclass.cloudmusic'
+    compileSdk 33
+
+    defaultConfig {
+        Date date = new Date()
+        applicationId "moe.lz233.googleclass.cloudmusic"
+        minSdk 19
+        targetSdk 33
+        versionCode date.format("yyyyMMdd").toInteger()
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            zipAlignEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = '11'
+    }
+    buildFeatures {
+        viewBinding true
+    }
+    packagingOptions {
+        jniLibs {
+            excludes += []
+        }
+        resources {
+            excludes += ['META-INF/**', 'kotlin/**', 'okhttp3/**', 'org/**', '**.properties', '**.bin']
+        }
+    }
+}
+
+dependencies {
+    api project(':gdk')
+
+    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.appcompat:appcompat:1.6.0'
+    implementation "androidx.multidex:multidex:2.0.1"
+
+    //2.6.4
+    implementation 'com.squareup.retrofit2:retrofit:2.6.4'
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.4'
+    //3.12.13
+    implementation 'com.squareup.okhttp3:okhttp:3.12.13'
+    implementation 'com.squareup.okhttp3:okhttp-dnsoverhttps:3.12.13'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.12.13'
+
+    implementation 'com.github.bumptech.glide:glide:4.13.2'
+    implementation 'com.github.bumptech.glide:okhttp3-integration:4.12.0'
+
+    //fuck 4.4 https://stackoverflow.com/a/59346159/40013
+    implementation 'org.conscrypt:conscrypt-android:2.2.1'
+
+    implementation 'commons-codec:commons-codec:20041127.091804'
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}
