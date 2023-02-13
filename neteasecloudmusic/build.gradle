@@ -4,16 +4,18 @@ plugins {
 }
 
 android {
-    namespace 'moe.lz233.googleclass.cloudmusic'
+    namespace 'moe.lz233.googleglass.cloudmusic'
     compileSdk 33
 
     defaultConfig {
         Date date = new Date()
-        applicationId "moe.lz233.googleclass.cloudmusic"
+        applicationId "moe.lz233.googleglass.cloudmusic"
         minSdk 19
         targetSdk 33
         versionCode date.format("yyyyMMdd").toInteger()
         versionName "1.0"
+        
+        multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -47,11 +49,8 @@ android {
 }
 
 dependencies {
-    api project(':gdk')
-
-    implementation 'androidx.core:core-ktx:1.9.0'
-    implementation 'androidx.appcompat:appcompat:1.6.0'
-    implementation "androidx.multidex:multidex:2.0.1"
+    implementation project(':gdk')
+    implementation project(':mediaplayer')
 
     //2.6.4
     implementation 'com.squareup.retrofit2:retrofit:2.6.4'
@@ -67,7 +66,7 @@ dependencies {
     //fuck 4.4 https://stackoverflow.com/a/59346159/40013
     implementation 'org.conscrypt:conscrypt-android:2.2.1'
 
-    implementation 'commons-codec:commons-codec:20041127.091804'
+    implementation 'commons-codec:commons-codec:1.3'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

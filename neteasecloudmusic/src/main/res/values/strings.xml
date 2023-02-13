@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">neteasecloudmusic</string>
+    <string name="voice_trigger">Cloud Music</string>
 </resources>

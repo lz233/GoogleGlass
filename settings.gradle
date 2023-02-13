@@ -16,3 +16,4 @@ rootProject.name = "GoogleGlass"
 include ':app'
 include ':neteasecloudmusic'
 include ':gdk'
+include ':mediaplayer'
