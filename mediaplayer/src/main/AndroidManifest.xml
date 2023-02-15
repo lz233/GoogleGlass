@@ -1,6 +1,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application>
+        <activity
+            android:name=".playermanager.activity.MenuActivity"
+            android:exported="false"
+            android:launchMode="singleInstance"
+            android:theme="@style/Theme.GoogleGlass.Menu" />
+
         <service
             android:name="com.zhy.mediaplayer_exo.playermanager.service.MediaForegroundService"
             android:exported="false">

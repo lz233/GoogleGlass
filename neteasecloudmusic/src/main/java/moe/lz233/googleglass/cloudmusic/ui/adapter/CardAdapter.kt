@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import com.google.android.glass.widget.CardBuilder
 import com.google.android.glass.widget.CardScrollAdapter
 
-open class CardAdapter(val cards: List<CardBuilder>, val actions: List<(() -> Unit)?> = listOf()) : CardScrollAdapter() {
+open class CardAdapter(val cards: MutableList<CardBuilder>, val actions: MutableList<(() -> Unit)?> = mutableListOf()) : CardScrollAdapter() {
 
     override fun getCount() = cards.size
 

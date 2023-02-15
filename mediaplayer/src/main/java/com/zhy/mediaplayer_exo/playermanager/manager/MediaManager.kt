@@ -69,7 +69,7 @@ object MediaManager : Player.EventListener {
         }
         simpleExoPlayer.setMediaItems(mediaItemList)
         infMediaSwitchTrackChangeListenerList.map {
-            it.onTracksChange(playlistItemList[0])
+            it.onTracksChange(playlistItemList[playIndex])
         }
         switchPlayMode(currentPlayMode)
         simpleExoPlayer.prepare()

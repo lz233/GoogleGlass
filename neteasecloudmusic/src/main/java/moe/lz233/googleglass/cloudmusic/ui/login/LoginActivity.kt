@@ -18,7 +18,7 @@ class LoginActivity : BaseActivity() {
 
     private val cardAdapter by lazy {
         CardAdapter(
-            listOf(
+            mutableListOf(
                 CardBuilder(this, CardBuilder.Layout.COLUMNS)
                     .setText("扫描二维码登录")
             )

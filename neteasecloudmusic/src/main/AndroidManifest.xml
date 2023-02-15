@@ -18,7 +18,8 @@
         <activity
             android:name=".ui.home.HomeActivity"
             android:exported="true"
-            android:icon="@drawable/ic_launcher">
+            android:icon="@drawable/ic_launcher"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="com.google.android.glass.action.VOICE_TRIGGER" />
             </intent-filter>
@@ -29,7 +30,23 @@
 
         <activity
             android:name=".ui.login.LoginActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name=".ui.daily.DailyActivity"
+            android:exported="false"
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name=".ui.playlist.PlayListActivity"
+            android:exported="false"
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name=".ui.playlistdetail.PlayListDetailActivity"
+            android:exported="false"
+            android:launchMode="singleTask" />
     </application>
 
 </manifest>

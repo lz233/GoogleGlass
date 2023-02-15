@@ -9,25 +9,26 @@ import moe.lz233.googleglass.cloudmusic.logic.dao.UserDao
 import moe.lz233.googleglass.cloudmusic.logic.network.CloudMusicNetwork
 import moe.lz233.googleglass.cloudmusic.ui.BaseActivity
 import moe.lz233.googleglass.cloudmusic.ui.adapter.CardAdapter
+import moe.lz233.googleglass.cloudmusic.ui.daily.DailyActivity
 import moe.lz233.googleglass.cloudmusic.ui.login.LoginActivity
-import moe.lz233.googleglass.cloudmusic.utils.ktx.bitmap
+import moe.lz233.googleglass.cloudmusic.ui.playlist.PlayListActivity
+import moe.lz233.googleglass.cloudmusic.utils.ktx.adjustParam
 import moe.lz233.googleglass.cloudmusic.utils.ktx.setActionBoundAdapter
-import moe.lz233.googleglass.util.LogUtil
+import moe.lz233.googleglass.util.ktx.bitmap
 
 class HomeActivity : BaseActivity() {
 
     private val cardAdapter by lazy {
         CardAdapter(
-            listOf(
+            mutableListOf(
                 CardBuilder(this, CardBuilder.Layout.CAPTION),
                 CardBuilder(this, CardBuilder.Layout.MENU).setText("我的歌单"),
-                CardBuilder(this, CardBuilder.Layout.MENU).setText("每日推荐"),
-                CardBuilder(this, CardBuilder.Layout.MENU).setText("关于")
+                CardBuilder(this, CardBuilder.Layout.MENU).setText("每日推荐")
             ),
-            listOf(
-                { LogUtil.toast("test") },
-                { Unit },
-                { Unit }
+            mutableListOf(
+                null,
+                { PlayListActivity.actionStart(this) },
+                { DailyActivity.actionStart(this) }
             )
         )
     }
@@ -39,16 +40,16 @@ class HomeActivity : BaseActivity() {
         if (UserDao.isLogin) {
             launch {
                 val accountInfoResponse = CloudMusicNetwork.getAccountInfo()
-                cardAdapter.cards[0].setText(accountInfoResponse.profile.nickName)
-                cardAdapter.cards[0].setFootnote(accountInfoResponse.profile.bio)
                 Glide.with(this@HomeActivity)
-                    .bitmap(accountInfoResponse.profile.backgroundUrl) {
+                    .bitmap(accountInfoResponse.profile.backgroundUrl.adjustParam(640, 360)) {
                         cardAdapter.cards[0].addImage(it)
                         cardAdapter.notifyDataSetChanged()
                     }
                 Glide.with(this@HomeActivity)
-                    .bitmap(accountInfoResponse.profile.avatarUrl) {
+                    .bitmap(accountInfoResponse.profile.avatarUrl.adjustParam(100, 100)) {
                         cardAdapter.cards[0].setIcon(it)
+                        cardAdapter.cards[0].setText(accountInfoResponse.profile.nickName)
+                        cardAdapter.cards[0].setFootnote(accountInfoResponse.profile.bio)
                         cardAdapter.notifyDataSetChanged()
                     }
             }

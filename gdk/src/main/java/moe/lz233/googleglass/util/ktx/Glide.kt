@@ -1,4 +1,4 @@
-package moe.lz233.googleglass.cloudmusic.utils.ktx
+package moe.lz233.googleglass.util.ktx
 
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
