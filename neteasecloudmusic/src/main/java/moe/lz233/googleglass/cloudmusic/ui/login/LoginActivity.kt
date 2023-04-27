@@ -8,11 +8,11 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import moe.lz233.googleglass.cloudmusic.logic.dao.UserDao
 import moe.lz233.googleglass.cloudmusic.logic.network.CloudMusicNetwork
-import moe.lz233.googleglass.cloudmusic.ui.BaseActivity
-import moe.lz233.googleglass.cloudmusic.ui.adapter.CardAdapter
-import moe.lz233.googleglass.cloudmusic.utils.ktx.setActionBoundAdapter
+import moe.lz233.googleglass.ui.BaseActivity
+import moe.lz233.googleglass.ui.adapter.CardAdapter
 import moe.lz233.googleglass.util.LogUtil
 import moe.lz233.googleglass.util.QRCodeUtil
+import moe.lz233.googleglass.util.ktx.setActionBoundAdapter
 
 class LoginActivity : BaseActivity() {
 

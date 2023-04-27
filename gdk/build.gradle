@@ -34,7 +34,8 @@ dependencies {
     api files('libs/gdk.jar')
 
     api 'androidx.multidex:multidex:2.0.1'
-    api 'androidx.core:core-ktx:1.9.0'
+    api 'androidx.core:core-ktx:1.10.0'
+    implementation 'androidx.core:core-ktx:1.10.0'
 
     api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
 

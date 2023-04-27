@@ -4,17 +4,17 @@ plugins {
 }
 
 android {
-    namespace 'moe.lz233.googleglass.cloudmusic'
+    namespace 'moe.lz233.googleglass.baidumaps'
     compileSdk 33
 
     defaultConfig {
         Date date = new Date()
-        applicationId "moe.lz233.googleglass.cloudmusic"
+        applicationId "moe.lz233.googleglass.baidumaps"
         minSdk 19
         targetSdk 33
         versionCode date.format("yyyyMMdd").toInteger()
         versionName date.format("yyyyMMdd")
-        
+
         multiDexEnabled true
 
         ndk {
@@ -33,28 +33,25 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = '11'
-    }
-    buildFeatures {
-        viewBinding true
-    }
-    packagingOptions {
-        jniLibs {
-            excludes += []
-        }
-        resources {
-            excludes += ['META-INF/**', 'kotlin/**', 'okhttp3/**', 'org/**', '**.properties', '**.bin']
-        }
+        jvmTarget = '1.8'
     }
 }
 
 dependencies {
     implementation project(':gdk')
-    implementation project(':mediaplayer')
+
+    //工具组件
+    implementation 'com.baidu.lbsyun:BaiduMapSDK_Util:7.5.4'
+    //检索组件
+    implementation 'com.baidu.lbsyun:BaiduMapSDK_Search:7.5.4'
+    //步骑行组件
+    implementation 'com.baidu.lbsyun:BaiduMapSDK_Map-BWNavi:7.5.4'
+    //全量定位组件
+    implementation 'com.baidu.lbsyun:BaiduMapSDK_Location_All:9.3.7'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

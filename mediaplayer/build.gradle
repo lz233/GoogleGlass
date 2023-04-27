@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+apply plugin: 'org.jetbrains.kotlin.android'
 group = 'com.github.IAmWilling'
 
 android {
@@ -39,7 +40,7 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation project(':gdk')
 
-    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.core:core-ktx:1.10.0'
     //2.14.2
     api 'com.google.android.exoplayer:exoplayer:2.14.2'
     api 'com.google.android.exoplayer:extension-okhttp:2.14.2'

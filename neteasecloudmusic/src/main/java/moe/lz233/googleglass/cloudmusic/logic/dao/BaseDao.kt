@@ -6,7 +6,7 @@ import moe.lz233.googleglass.App.Companion.sp
 
 object BaseDao {
     var soundQuality: Int
-        get() = sp.getInt("soundQuality", 320000)
+        get() = sp.getInt("soundQuality", 128000)
         set(value) = editor.putInt("soundQuality", value).apply()
 
     var screenBrightness: Float
